@@ -5,5 +5,5 @@ A quickstart boilerplate for React projects. this project includes:
 * React-Router
 * Webpack
 
-# Quickstart
+## Quickstart
 `npm start`
