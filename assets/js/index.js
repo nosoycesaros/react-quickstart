@@ -1,5 +1,5 @@
 // Require SCSS to allow Webpack live render
-require('../css/style.scss');
+import '../css/style.scss';
 
 // Import React and React-dom
 import React from 'react'
@@ -7,25 +7,11 @@ import { render } from 'react-dom'
 // Import elements of React Router
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router'
 
-// Define app container
-var destination = document.querySelector("#app");
+// Import application Component
+import App from './App';
 
-// Define the main App component
-var App = React.createClass({
-  render: function() {
-    /*
-     * Start your project here
-     */
-    return (
-      <div className="container">
-        <h1>Hello</h1>
-      </div>
-    )
-  }
-});
+// Define app container
+const destination = document.getElementById("app");
 
 // Start Here
-render(
-  <App />
-  , destination
-)
+render(<App />, destination);
