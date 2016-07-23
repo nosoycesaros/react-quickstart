@@ -1,4 +1,5 @@
-# React QuickStart
+![React Quickstart logo](https://raw.githubusercontent.com/nosoycesaros/react-quickstart/master/assets/images/logo.png)
+
 A really simple quickstart boilerplate for React projects. this project includes:
 * React
 * Styles File (SCSS)
