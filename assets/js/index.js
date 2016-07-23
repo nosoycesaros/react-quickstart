@@ -13,6 +13,9 @@ var destination = document.querySelector("#app");
 // Define the main App component
 var App = React.createClass({
   render: function() {
+    /*
+     * Start your project here
+     */
     return (
       <div className="container">
         <h1>Hello</h1>

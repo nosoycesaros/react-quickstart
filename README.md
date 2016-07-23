@@ -1,12 +1,13 @@
 # React QuickStart
-A quickstart boilerplate for React projects. this project includes:
+A really simple quickstart boilerplate for React projects. this project includes:
 * React
 * Styles File (SCSS)
 * React-Router
 * Webpack
 
 ## Quickstart
-`npm start`
+1. Install node modules `npm install`
+2. Start the server `npm start`
 
 ## References
 This project is based on the following project list:
