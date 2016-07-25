@@ -4,7 +4,9 @@
   "description": "Quickstart boilerplate for React projects",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base ."
+    "start": "webpack-dev-server --inline --content-base .",
+    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/helpers.js --timeout 5000 --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -33,10 +35,17 @@
     "babel-loader": "^6.2.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "http-server": "^0.8.5",
+    "ignore-styles": "^4.0.0",
+    "mocha": "^2.5.3",
+    "node-sass": "^3.8.0",
+    "react-addons-test-utils": "^15.2.1",
     "sass-loader": "^4.0.0",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
