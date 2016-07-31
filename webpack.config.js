@@ -2,7 +2,7 @@
 
 // get the node environment to determine
 // which webpack build config will be used
-const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
+const ENV = process.env.NODE_ENV;
 
 /**
  * get the appropiate webpack configuration
@@ -16,5 +16,10 @@ function getConfigForEnvironment(env) {
 };
 
 // get the configuration for the current environment and export it
+console.log("-------------------------------------------");
+console.log("REACT QUICKSTART");
+console.log("-------------------------------------------");
+console.info('Environment:', ENV);
+
 let config = getConfigForEnvironment(ENV);
 module.exports = config;

@@ -24,11 +24,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
-        loader: 'file?name=assets/images/[name].[hash].[ext]',
+        loader: 'file?name=[path][name].[ext]&context=./assets',
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/,
-        loader: 'file?name=assets/fonts/[name].[hash].[ext]',
+        loader: 'file?name=[path][name].[ext]&context=./assets',
       },
       {
         test: /\.s(c|a)ss$/,
