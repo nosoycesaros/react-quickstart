@@ -1,29 +1,35 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+'use strict';
 
-module.exports = {
-  entry: './assets/js/index.js',
+const webpack           = require('webpack');
+const webpackMerge      = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const commonConfig      = require('./webpack.common.js');
+const helpers           = require('./helpers');
+
+module.exports = webpackMerge(commonConfig, {
+  devtool: 'cheap-module-eval-source-map',
+
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './assets/js/index.jsx'
+  ],
 
   output: {
-    filename: 'bundle.js',
-    publicPath: ''
+    path: helpers.root('dist'),
+    publicPath: 'http://localhost:8080/',
+    filename: '[name].js',
+    chunkFilename: '[id].chunk.js'
   },
 
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass')
-      }
-    ]
+  devServer: {
+    historyApiFallback: true,
+    stats: 'minimal',
+    hot: true,
+    contentBase: helpers.root('dist')
   },
+
   plugins: [
-    new ExtractTextPlugin('assets/css/style.css', {
-      allChunks: true
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
-}
+});

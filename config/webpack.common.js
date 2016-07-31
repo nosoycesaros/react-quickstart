@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './assets/js/index.js',
+  entry: './assets/js/index.jsx',
 
   // resolve module to js or jsx extensions
   resolve: {
@@ -16,15 +16,11 @@ module.exports = {
   },
 
   module: {
-    loader: [
+    loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: ['react-hot', 'babel?cacheDirectory'],
-      },
-      {
-        test: /\.html$/,
-        loader: 'html',
+        loader: 'react-hot!babel',
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
@@ -46,10 +42,10 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './assets/index.html',
+      template: './index.html',
       inject: true
     }),
-    new ExtractTextPlugin('./assets/css/style.css', {
+    new ExtractTextPlugin('[name].[hash].css', {
       allChunks: true
     })
   ]

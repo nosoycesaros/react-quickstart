@@ -11,13 +11,8 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'development';
  * @return {Object}     the parsed webpack configuration to use
  */
 function getConfigForEnvironment(env) {
-  switch(env) {
-    case 'production':
-      return require('./config/webpack.production.js');
-    case 'development':
-    default:
-      return require('./config/webpack.dev.js');
-  }
+  const webpackConfig = `./config/webpack.${env}.js`;
+  return require(webpackConfig);
 };
 
 // get the configuration for the current environment and export it
