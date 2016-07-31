@@ -25,7 +25,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'react-hot!babel',
+        loader: 'react-hot!babel?cacheDirectory',
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
