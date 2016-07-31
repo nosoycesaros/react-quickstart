@@ -2,7 +2,7 @@
 
 // get the node environment to determine
 // which webpack build config will be used
-const ENV = process.env.NODE_ENV;
+const ENV = process.env.NODE_ENV || 'development';
 
 /**
  * get the appropiate webpack configuration
