@@ -17,15 +17,15 @@ describe('App Component', () => {
     ({ props, component } = renderComponent(App, initialProps));
   });
 
+  // make sure the component has the appropiate classes
+  it('should have a container', () => {
+    expect(component.props.className).to.equal('container');
+  });
+
   // the app should greet the user
   it('should say hello', () => {
     // get the component's children
     const paragraph = component.props.children;
     expect(paragraph.props.children).to.equal('Hello');
-  });
-
-  // make sure the component has the appropiate classes
-  it('should have a container', () => {
-    expect(component.props.className).to.equal('container');
   });
 })
