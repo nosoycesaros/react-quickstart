@@ -26,6 +26,6 @@ describe('App Component', () => {
   it('should say hello', () => {
     // get the component's children
     const paragraph = component.props.children;
-    expect(paragraph.props.children).to.equal('Hello');
+    expect(paragraph.props.children).to.equal('Hello!');
   });
 })

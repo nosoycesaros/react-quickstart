@@ -38,13 +38,19 @@ module.exports = {
   },
 
   plugins: [
+    // copy root html file and inject the compiled
+    // bundles into it
     new HtmlWebpackPlugin({
       template: './index.html',
-      inject: true
+      inject: true,
+      cache: true,
+      favicon: './favicon.png'
     }),
-    new ExtractTextPlugin('[name].[hash].css', {
+    // extract the SASS files into a target file in the 'css' folder
+    new ExtractTextPlugin('css/[name].[hash].css', {
       allChunks: true
     }),
+    // copy static assets as they are into the destination folder
     new CopyWebpackPlugin([
       // Copy directory contents to {output}/to/directory/
       { from: 'assets/images', to: 'images' },
