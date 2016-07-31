@@ -16,7 +16,7 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: helpers.root('dist'),
-    publicPath: '/',
+    publicPath: '',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
   },
@@ -24,13 +24,36 @@ module.exports = webpackMerge(commonConfig, {
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
     // include the ENV variable, so it can be used inside the
     // source file, for conditionally executing any code when
     // the script is running in the desired environment.
     new webpack.DefinePlugin({
       'process.env': {
-        'ENV': JSON.stringify(ENV)
+        'NODE_ENV': JSON.stringify(ENV)
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      // Don't beautify output (enable for neater output)
+      beautify: false,
+
+      // Eliminate comments
+      comments: false,
+
+      // Compression specific options
+      compress: {
+        warnings: false,
+
+        // Drop `console` statements
+        drop_console: true
+      },
+
+      // Mangling specific options
+      mangle: {
+        // Don't mangle $
+        except: ['$'],
+
+        // Don't care about IE8
+        screw_ie8 : true,
       }
     })
   ]
