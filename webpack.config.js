@@ -16,10 +16,5 @@ function getConfigForEnvironment(env) {
 };
 
 // get the configuration for the current environment and export it
-console.log("-------------------------------------------");
-console.log("REACT QUICKSTART");
-console.log("-------------------------------------------");
-console.info('Environment:', ENV);
-
 let config = getConfigForEnvironment(ENV);
 module.exports = config;

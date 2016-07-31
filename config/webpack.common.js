@@ -8,6 +8,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// import postCSS plugins
+const autoprefixer = require('autoprefixer');
+const cssnano      = require('cssnano');
+
 module.exports = {
   entry: './assets/js/index.jsx',
 
@@ -31,7 +35,7 @@ module.exports = {
         test: /\.s(c|a)ss$/,
         include: helpers.root('assets'),
         loader: ExtractTextPlugin.extract(
-          'style', 'css?sourceMap!sass?sourceMap'
+          'style', 'css?sourceMap!postcss!sass?sourceMap'
         )
       }
     ]
@@ -56,5 +60,13 @@ module.exports = {
       { from: 'assets/images', to: 'images' },
       { from: 'assets/fonts', to: 'fonts' }
     ])
-  ]
+  ],
+
+  // load postcss plugins to be used by the loader
+  postcss: function configPostCss() {
+    return [
+      autoprefixer({ browsers: ['last 4 versions'] }),
+      cssnano,
+    ];
+  },
 };
