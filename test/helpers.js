@@ -54,3 +54,6 @@ export function renderShallowComponent(ComponentClass, props = {}) {
 
 // configure any chai helper here
 chai.use(sinonChai);
+
+// create the deep rendering context
+createMockDOM();
