@@ -40,6 +40,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "http-server": "^0.8.5",
     "ignore-styles": "^4.0.0",
+    "jsdom": "^9.4.1",
     "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
     "react-addons-test-utils": "^15.2.1",
