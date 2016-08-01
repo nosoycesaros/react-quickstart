@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --content-base .",
-    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/helpers.js --timeout 5000 --recursive",
+    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/helpers.js --timeout 5000 \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
