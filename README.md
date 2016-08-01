@@ -55,6 +55,13 @@ $ npm run test:watch
 ```
 The `test:watch` task is very useful for development, we recommend you to have this command running as you run tests and make changes to you codebase.
 
+### Using Deep or shallow rendering
+In the `test` environment, you can either use deep or shallow rendering to test React Components. Using one or the other could dramatically improve performance when testing. This is due to the fact that:
+* **shallow rendering** only renders one-level deep, i.e: if the component has one or more child components, they will not be rendered.
+* **deep rendering** renders components with all of its child components. This rendering methods requires a DOM, and thus deep rendering consumes more resources.
+
+If you need to easily test properties from a component *regardless of the props or state* of any child components, it is recommended to use Shallow rendering; otherwise, use deep rendering.
+
 References
 ---
 This project is based on the following projects and tutorials:
