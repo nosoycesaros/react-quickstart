@@ -1,6 +1,7 @@
 // configure any helper you need for testing here
 import chai from 'chai';
 import sinonChai from 'sinon-chai';
+import jsdom from 'jsdom';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
