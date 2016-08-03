@@ -1,29 +1,20 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+'use strict';
 
-module.exports = {
-    entry: './assets/js/index.js',
+// get the node environment to determine
+// which webpack build config will be used
+const ENV = process.env.NODE_ENV || 'development';
 
-    output: {
-        filename: 'bundle.js',
-        publicPath: ''
-    },
+/**
+ * get the appropiate webpack configuration
+ * for the specified environment
+ * @param  {string} env a string with the environment description (e.g: development or production)
+ * @return {Object}     the parsed webpack configuration to use
+ */
+function getConfigForEnvironment(env) {
+  const webpackConfig = `./config/webpack.${env}.js`;
+  return require(webpackConfig);
+};
 
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass')
-            }
-        ]
-    },
-    plugins: [
-        new ExtractTextPlugin('assets/css/style.css', {
-            allChunks: true
-        })
-    ]
-}
+// get the configuration for the current environment and export it
+let config = getConfigForEnvironment(ENV);
+module.exports = config;
