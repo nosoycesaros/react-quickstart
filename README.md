@@ -4,8 +4,8 @@ A really simple quickstart boilerplate for React projects. it includes:
 * ReactJS.
 * React-Router.
 * Styles Files compilation using SASS.
-* Webpack and webpack-dev-server.
-* ES2015 and JSX support with babel.
+* Webpack and webpack-dev-server for module bundling and development server, respectively.
+* ES2015 and JSX support with Babel.
 * Mocha as the test runner and chai as the assertion library.
 
 Requirements
@@ -40,7 +40,7 @@ $ npm install
 ```bash
 $ npm start
 ```
-you can now view your project in the browser, just navigate to `http://localhost:8080`.
+you can now view your project in the browser, just navigate to `http://localhost:8080`. The server includes Hot Module Replacement, so you can just make the tweaks you need and see them reload automatically in the brwoser without a full refresh!
 
 Running Tests
 ---
@@ -61,6 +61,33 @@ In the `test` environment, you can either use deep or shallow rendering to test 
 * **deep rendering** renders components with all of its child components. This rendering methods requires a DOM, and thus deep rendering consumes more resources.
 
 If you need to easily test properties from a component *regardless of the props or state* of any child components, it is recommended to use Shallow rendering; otherwise, use deep rendering.
+
+Building for Production
+---
+You can easily build all of the project's source files to production HTML, CSS and JS files by running the command:
+
+```bash
+$ npm run build
+```
+This will build the source files and create a new `/dist` directory with the compiled resources. The production build will perform the following transformations:
+
+### for HTML
+* minifies the `index.html` file by removing line breaks and spaces.
+* automatically injects all the generated CSS and JS files that are compiled in the project.
+
+### for CSS
+* compile all SASS files into a single CSS file.
+* adds vendor prefixes to the compiled CSS using PostCSS [autoprefixer plugin](https://github.com/postcss/autoprefixer)
+* minify CSS file using the PostCSS [CSSnano plugin](https://github.com/ben-eb/cssnano).
+
+### for JavaScript
+* prepares the production build for both React and ReactDOM.
+* Removes duplicated JavaScript code.
+* converts ES6 and JSX code to valid ES5 JavaScript.
+* Uglifies the final JS output, and mangles it as well.
+
+### for static assets (images, fonts, etc)
+* copies the static assets in the `/dist` folder, leaving the original folder structure unchanged.
 
 References
 ---
