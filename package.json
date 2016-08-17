@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --progress",
-    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/helpers.js --timeout 5000 --recursive",
+    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/helpers.js --timeout 5000 \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm test -- --watch",
     "build": "rimraf dist && NODE_ENV=production webpack --progress --profile --bail"
   },
@@ -47,6 +47,7 @@
     "html-webpack-plugin": "^2.22.0",
     "http-server": "^0.8.5",
     "ignore-styles": "^4.0.0",
+    "jsdom": "^9.4.1",
     "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
     "postcss-loader": "^0.9.1",
