@@ -56,5 +56,12 @@ module.exports = webpackMerge(commonConfig, {
         screw_ie8 : true,
       }
     })
-  ]
+  ],
+
+  // configure ESLint for production
+  eslint: {
+    failOnError: true,
+    failOnWarning: false,
+    formatter: require("eslint/lib/formatters/table"),
+  }
 });

@@ -60,7 +60,7 @@ module.exports = {
     }),
     // extract the SASS files into a target file in the 'css' folder
     new ExtractTextPlugin('css/[name].[hash].css', {
-      allChunks: true
+      allChunks: true,
     }),
     // copy static assets as they are into the destination folder
     new CopyWebpackPlugin([
@@ -80,6 +80,8 @@ module.exports = {
 
   // configure ESLint here
   eslint: {
-    
+    emitError: true,
+    emitWarning: true,
+    cache: true
   }
 };
