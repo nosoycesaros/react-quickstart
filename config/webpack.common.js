@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'react-hot!babel?cacheDirectory',
+        loader: 'react-hot!babel?cacheDirectory!eslint',
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
@@ -60,7 +60,7 @@ module.exports = {
     }),
     // extract the SASS files into a target file in the 'css' folder
     new ExtractTextPlugin('css/[name].[hash].css', {
-      allChunks: true
+      allChunks: true,
     }),
     // copy static assets as they are into the destination folder
     new CopyWebpackPlugin([
@@ -77,4 +77,11 @@ module.exports = {
       cssnano,
     ];
   },
+
+  // configure ESLint here
+  eslint: {
+    emitError: true,
+    emitWarning: true,
+    cache: true
+  }
 };

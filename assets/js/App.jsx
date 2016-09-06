@@ -10,7 +10,7 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <img src="images/logo.png" alt="React Quickstart" />
-        <h1>Hello!</h1>
+        <h1>Says Hello!</h1>
       </div>
     )
   }
